@@ -1,0 +1,24 @@
+@import './base/mixins';
+
+@include b('clearfix') {
+  @include clearfix()
+}
+
+@include b('float') {
+  @include m(('left', 'right')) {
+    float: left;
+  }
+}
+
+@include b('t-no-wrap') {
+  @include no-wrap()
+}
+
+@include b('t-mr-2') {
+  @include multiEllipsis()
+}
+
+@include b('t-mr-3') {
+  @include multiEllipsis(3)
+}
+

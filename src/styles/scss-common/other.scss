@@ -1,0 +1,129 @@
+@import './base/mixins';
+@import './base/var';
+
+// public var
+$bordersize: (
+  'br-0': $--border-radius-zero,
+  'br-2': $--border-radius-small,
+  'br-4': $--border-radius-base
+);
+
+$--cursor__key: (
+  a: auto,
+  c: crosshair,
+  d: default,
+  p: pointer,
+  m: move,
+  t: text,
+  w: wait,
+  h: help
+);
+
+$fontweigh: (n: normal, b: bold, l: lighter);
+
+$fontalign: (c: center, left: bold, r: right);
+
+$fontdecoration: (o: overline, l: line-through, u: underline, n: none);
+
+$overflowlist: (v: visible, h: hidden, s: scroll, a: auto);
+
+// 禁止点击
+@include b('click--invalid') {
+  pointer-events: none;
+}
+
+// 禁止选择
+@include b('onselect') {
+  user-select: none;
+}
+
+@include b('bs-b') {
+  box-shadow: $--box-shadow-base;
+}
+
+@include b('bs-d') {
+  box-shadow: $--box-shadow-dark;
+}
+
+@include b('bs-l') {
+  box-shadow: $--box-shadow-light;
+}
+
+@include b('bc-b') {
+  border: $--border-base;
+}
+
+@include b('bc-l') {
+  border: $--border-base;
+  border-color: $--border-color-lighter;
+}
+
+@each $key, $val in $bordersize {
+  @include b($key) {
+    border-radius: $val;
+  }
+}
+
+@each $float in (left, right) {
+  @include b('f') {
+    @include modifier-separator('', #{$float}) {
+      float: $float;
+    }
+  }
+}
+
+@each $disp, $val in (n: none, b: block, i: inline, ib: inline-block) {
+  @include b('dis') {
+    @include modifier-separator('', #{$disp}) {
+      display: $val;
+    }
+  }
+}
+
+@each $key, $val in (a: absolute, r: relative, f: fixed, s: static, i:inherit) {
+  @include b('pos') {
+    @include modifier-separator('', #{$key}) {
+      position: $val;
+    }
+  }
+}
+
+@each $key, $val in $--cursor__key {
+  @include b('cur') {
+    @include modifier-separator('', #{$key}) {
+      cursor: $val;
+    }
+  }
+}
+
+@each $key, $val in $fontweigh {
+  @include b('fw') {
+    @include modifier-separator('', #{$key}) {
+      font-weight: $val;
+    }
+  }
+}
+
+@each $key, $val in $fontalign {
+  @include b('ta') {
+    @include modifier-separator('', #{$key}) {
+      text-align: $val;
+    }
+  }
+}
+
+@each $key, $val in $fontdecoration {
+  @include b('td') {
+    @include modifier-separator('', #{$key}) {
+      text-decoration: $val;
+    }
+  }
+}
+
+@each $key, $val in $fontdecoration {
+  @include b('ov') {
+    @include modifier-separator('', #{$key}) {
+      overflow: $val;
+    }
+  }
+}

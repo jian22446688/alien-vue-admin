@@ -1,0 +1,34 @@
+@import './base/mixins';
+@import './base/var';
+
+$maincolor: (
+  'w': $--color-white,
+  'b': $--color-black,
+  'p': $--color-primary,
+  's': $--color-success,
+  'e': $--color-warning,
+  'd': $--color-danger,
+  'i': $--color-info,
+  'l1': $--color-primary-light-1,
+  'l2': $--color-primary-light-2,
+  'l3': $--color-primary-light-3,
+  'l4': $--color-primary-light-4,
+  'l5': $--color-primary-light-5,
+  'l6': $--color-primary-light-6,
+  'l7': $--color-primary-light-7,
+  'l8': $--color-primary-light-8,
+  'l9': $--color-primary-light-9,
+  't1': $--color-text-primary,
+  't2': $--color-text-regular,
+  't3': $--color-text-secondary,
+  't4': $--color-text-placeholder
+);
+
+@each $key, $val in $maincolor {
+  @include b('bg-#{$key}') {
+    background-color: $val;
+  }
+  @include b('tc-#{$key}') {
+    color: $val;
+  }
+}

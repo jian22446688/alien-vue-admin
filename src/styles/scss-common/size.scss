@@ -1,0 +1,119 @@
+@import './base/mixins';
+@import './base/var';
+
+@for $i from 1 through $--size-mp-lenght {
+  $num: $--size-mp-lenght_product * $i;
+  $numpx: $num + 0px;
+  @include b('pad-#{$num}') {
+    padding: $numpx;
+  }
+  @include b('pad-t-#{$num}') {
+    padding-top: $numpx;
+  }
+  @include b('pad-b-#{$num}') {
+    padding-bottom: $numpx;
+  }
+  @include b('pad-l-#{$num}') {
+    padding-left: $numpx;
+  }
+  @include b('pad-r-#{$num}') {
+    padding-right: $numpx;
+  }
+  @include b('mar-#{$num}') {
+    margin: $numpx;
+  }
+  @include b('mar-t-#{$num}') {
+    margin-top: $numpx;
+  }
+  @include b('mar-b-#{$num}') {
+    margin-bottom: $numpx;
+  }
+  @include b('mar-l-#{$num}') {
+    margin-left: $numpx;
+  }
+  @include b('mar-r-#{$num}') {
+    margin-right: $numpx;
+  }
+  @include b('pad-#{$num}-#{$num}') {
+    padding: $numpx $numpx;
+  }
+  @include b('mar-#{$num}-#{$num}') {
+    margin: $numpx $numpx;
+  }
+}
+
+@for $i from 1 through $--size-wh-min-lenght {
+  $num: $--size-wh-min-lenght_product * $i;
+  $numpx: $num + 0px;
+  @include b('w-#{$num}') {
+    width: $numpx;
+  }
+  @include b('h-#{$num}') {
+    height: $numpx;
+  }
+  @include b('t-#{$num}') {
+    top: $numpx;
+  }
+  @include b('b-#{$num}') {
+    bottom: $numpx;
+  }
+  @include b('l-#{$num}') {
+    left: $numpx;
+  }
+  @include b('r-#{$num}') {
+    right: $numpx;
+  }
+}
+
+@for $i from 1 through $--size-wh-max-p-lenght {
+  $num: $--size-wh-max-p-lenght_product * $i;
+  $numpre: $num + 0%;
+  @include b('w-p#{$num}') {
+    width: $numpre;
+  }
+  @include b('h-p#{$num}') {
+    height: $numpre;
+  }
+  @include b('w-max-p#{$num}') {
+    max-width: $numpre;
+  }
+  @include b('h-max-p#{$num}') {
+    max-height: $numpre;
+  }
+  @include b('w-min-p#{$num}') {
+    min-width: $numpre;
+  }
+  @include b('h-min-p#{$num}') {
+    min-height: $numpre;
+  }
+}
+@for $i from 1 through $--size-wh-max-lenght {
+  $num: $--size-wh-max-lenght_product * $i;
+  $numpre: $num + 0px;
+  @if $num > $--size-wh-min-lenght * $--size-wh-min-lenght_product {
+    @include b('w-#{$num}') {
+      width: $numpre;
+    }
+    @include b('h-#{$num}') {
+      height: $numpre;
+    }
+    @include b('w-max-#{$num}') {
+      max-width: $numpre;
+    }
+    @include b('h-max-#{$num}') {
+      max-height: $numpre;
+    }
+    @include b('w-min-#{$num}') {
+      min-width: $numpre;
+    }
+    @include b('h-min-#{$num}') {
+      min-height: $numpre;
+    }
+  }
+}
+
+@each $val in $--font-size {
+  @include b('f-s#{$val}') {
+    font-size: $val + 0px;
+  }
+}

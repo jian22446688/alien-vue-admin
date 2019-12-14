@@ -1,0 +1,25 @@
+.c-text-subheading {
+  color: #909399;
+}
+.c-text-subheading65 {
+  color: rgba(0,0,0,.65);
+}
+
+.c-panelgroup-card {
+  .el-card__header {
+    padding: 12px 20px;
+  }
+}
+
+.c-my-message {
+  .el-badge__content {
+    top: 12px !important;
+    right: 12px !important;
+  }
+}
+
+.c-my-form-steps {
+  .el-select .el-input {
+    width: 130px;
+  }
+}
