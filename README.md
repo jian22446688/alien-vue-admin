@@ -50,4 +50,13 @@ npm run lint
 npm run lint -- --fix
 ```
 
+## 截屏
+
+![alien-vue-admin](https://github.com/jian22446688/alien-vue-admin/raw/master/imgs/01.png)
+![alien-vue-admin](https://github.com/jian22446688/alien-vue-admin/raw/master/imgs/02.png)
+![alien-vue-admin](https://github.com/jian22446688/alien-vue-admin/raw/master/imgs/03.png)
+![alien-vue-admin](https://github.com/jian22446688/alien-vue-admin/raw/master/imgs/04.png)
+![alien-vue-admin](https://github.com/jian22446688/alien-vue-admin/raw/master/imgs/05.png)
+![alien-vue-admin](https://github.com/jian22446688/alien-vue-admin/raw/master/imgs/06.png)
+
 Copyright (c) 2017-present Cary
