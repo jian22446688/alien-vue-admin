@@ -1,4 +1,7 @@
 build/*.js
 src/assets
+docs
 public
 dist
+./README.md
+

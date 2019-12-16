@@ -18,7 +18,7 @@
     "build:git": "npm run build:prod && npm run deploy"
   },
   "husky": {
-    "hooks": {
+    "thooks": {
       "pre-commit": "lint-staged"
     }
   },
