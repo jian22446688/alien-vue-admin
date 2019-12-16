@@ -6,6 +6,8 @@
 
 觉得可以话请点星
 
+[Demo](https://jian22446688.github.io/alien-vue-admin/)
+
 ```bash
 # clone the project
 git clone https://github.com/jian22446688/alien-vue-admin.git
