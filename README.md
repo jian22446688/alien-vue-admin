@@ -4,11 +4,17 @@
   <img width="320" src="http://cccary.gitee.io/alien-docs/main-logo.png">
 </p>
 
+::: tip
+  这是一项基于 vue-element-admin 开发的项目，项目核心为二次封装了, 好几个组件组件，使后台开发高效
+:::
+
 ## Getting started
 
 觉得可以话请点星
 
 [Demo](https://jian22446688.github.io/alien-vue-admin/)
+
+[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 
 ```bash
 # clone the project
