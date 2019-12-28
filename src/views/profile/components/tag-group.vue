@@ -52,7 +52,6 @@ export default {
       this.tempList = val
     }
   },
-  computed: {},
   mounted() {
     this.tempList = this.list
   },

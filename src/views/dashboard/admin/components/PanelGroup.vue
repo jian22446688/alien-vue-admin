@@ -40,7 +40,11 @@
             <span class="cc-f-s30">¥ 126,560</span>
           </div>
           <div class>
-            <ve-line :data="chartData" height="48px" :colors="vchartColor" :settings="chartSettings"
+            <ve-line
+              :data="chartData"
+              height="48px"
+              :colors="vchartColor"
+              :settings="chartSettings"
               :extend="chartOption" />
           </div>
           <el-divider />
@@ -65,7 +69,11 @@
             <span class="cc-f-s30">¥ 126,560</span>
           </div>
           <div class>
-            <ve-histogram :data="chartData" height="48px" :colors="vchartColor" :settings="chartSettings"
+            <ve-histogram
+              :data="chartData"
+              height="48px"
+              :colors="vchartColor"
+              :settings="chartSettings"
               :extend="chartOption" />
           </div>
           <el-divider />

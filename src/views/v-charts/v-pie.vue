@@ -31,8 +31,6 @@
           <ve-pie :data="getChartData(7)" :settings="chartOffsetSettings" :colors="vchartColor"/>
         </el-card>
       </el-col>
-      
-      
     </el-row>
   </div>
 </template>
@@ -79,7 +77,7 @@ export default {
       let rows = []
       let columns = ['日期', '访问用户', '下单用户', '下单率']
       for (let i = 0; i < num; i++) {
-        rows.push({ 
+        rows.push({
           '日期': '1/' + (1 + i),
           '访问用户': randomRange(1000, 6000),
           '下单用户': randomRange(1000, 6000),

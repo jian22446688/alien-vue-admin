@@ -79,8 +79,8 @@
           <div>
             <ve-wordcloud
               height="222px"
-              :data="chartWordcloudData" 
-              :settings="chartWordcloudSettings"></ve-wordcloud>
+              :data="chartWordcloudData"
+              :settings="chartWordcloudSettings"/>
           </div>
         </el-card>
       </el-col>
@@ -133,27 +133,27 @@
         </el-card>
       </el-col>
     </el-row>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
   </div>
-  
 </template>
 
 <script>
-function getRows () {
+function getRows (){
   return [
     { 'word': 'visualMap', 'count': 22199 },
     { 'word': 'continuous', 'count': 10288 },
-    { 'word': 'contoller', 'count': 620},
+    { 'word': 'contoller', 'count': 620 },
     { 'word': 'series', 'count': 274470 },
     { 'word': 'gauge', 'count': 12311 },
     { 'word': 'detail', 'count': 1206 },
@@ -201,7 +201,7 @@ export default {
             color: '#fff',
             opacity: 0,
             borderWidth: 4,
-            borderColor: '#1890FF' 
+            borderColor: '#1890FF'
           },
           emphasis: {
             itemStyle: {
@@ -212,12 +212,12 @@ export default {
             borderDistance: 2,
             itemStyle: {
               borderColor: '#1890FF',
-              borderWidth: 2, 
+              borderWidth: 2,
               shadowBlur: 0
             }
           },
           itemStyle: {
-            borderWidth: 2, 
+            borderWidth: 2,
             shadowBlur: 0
           },
           label: {
@@ -225,8 +225,7 @@ export default {
             fontSize: 22,
             position: ['50%', '30%'],
           }
-        },
-       
+        }
       }
     }
     this.chartSettings = {
@@ -258,13 +257,13 @@ export default {
         top: '-0px',
         left: '-66px',
         right: '-20px',
-        bottom: '-18px',
+        bottom: '-18px'
       },
       tooltip : {
         trigger: 'axis',
         // 隐藏鼠标滑过隐藏线
         axisPointer: {
-          type: 'none',
+          type: 'none'
         }
       },
       series:{
@@ -310,7 +309,7 @@ export default {
           { '日期': '11', '访问用户': 4793 },
           { '日期': '12', '访问用户': 4292 },
           { '日期': '13', '访问用户': 4122 },
-          { '日期': '14', '访问用户': 1422 },
+          { '日期': '14', '访问用户': 1422 }
         ]
       },
       chartData: {
@@ -355,7 +354,7 @@ export default {
   position: absolute;
   top: 34px;
   left: 50%;
-  transform: translateX(-50%)
+  transform: translateX(-50%);
 }
 
 </style>

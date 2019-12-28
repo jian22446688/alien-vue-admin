@@ -18,7 +18,7 @@
       </el-col>
       <el-col :sm="24" :lg="12">
         <el-card class="cc-mar-b-10">
-          <ve-line :data="getChartData(5)" :settings="chartSettings"  :colors="vchartColor"/>
+          <ve-line :data="getChartData(5)" :settings="chartSettings" :colors="vchartColor"/>
         </el-card>
       </el-col>
       <el-col :sm="24" :lg="12">
@@ -33,7 +33,7 @@
       </el-col>
       <el-col :sm="24" :lg="12">
         <el-card class="cc-mar-b-10">
-           <ve-line :data="getChartData(6)" :extend="extendShowdot"  :colors="vchartColor"/>
+           <ve-line :data="getChartData(6)" :extend="extendShowdot" :colors="vchartColor"/>
         </el-card>
       </el-col>
       <el-col :sm="24" :lg="12">
@@ -46,7 +46,6 @@
            <ve-scatter :data="getChartData(6)" :colors="vchartColor"/>
         </el-card>
       </el-col>
-      <el-col :sm="24" :lg="12"></el-col>
     </el-row>
   </div>
 </template>
@@ -96,7 +95,7 @@ export default {
         trigger: 'axis',
         // 隐藏鼠标滑过隐藏线
         axisPointer: {
-          type: 'none',
+          type: 'none'
         }
       },
       series: {
@@ -114,7 +113,7 @@ export default {
         top: '-0px',
         left: '-66px',
         right: '-20px',
-        bottom: '-18px',
+        bottom: '-18px'
       },
     }
     this.extendShowdot = {
@@ -125,7 +124,7 @@ export default {
         trigger: 'axis',
         // 隐藏鼠标滑过隐藏线
         axisPointer: {
-          type: 'none',
+          type: 'none'
         }
       },
       series: {
@@ -153,7 +152,7 @@ export default {
       let rows = []
       let columns = ['日期', '访问用户', '下单用户', '下单率']
       for (let i = 0; i < num; i++) {
-        rows.push({ 
+        rows.push({
           '日期': '1/' + (1 + i),
           '访问用户': randomRange(1000, 6000),
           '下单用户': randomRange(1000, 6000),

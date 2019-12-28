@@ -53,3 +53,5 @@ Vue.component('split-pane', splitPane);
 https://github.com/lfyfly/vue-waterfall-easy/blob/master/README-CN.md
 
 ## 阿里云服务器 https://dwz.cn/YmII8vF7
+
+## 2019-12-21 记录 添加 大量数据展示

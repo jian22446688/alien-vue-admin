@@ -35,6 +35,7 @@
 </template>
 
 <script>
+
 import SplitPane from 'vue-splitpane'
 import { getCommonContainerList } from '@/api/modules/common.js'
   export default {

@@ -31,8 +31,8 @@
             </el-select>
           </el-form-item>
           <el-form-item label="付款账户:">
-            <el-input placeholder="请输入内容" v-model="form.selectval" class="c-my-form-steps">
-              <el-select v-model="select" slot="prepend" placeholder="请选择">
+            <el-input v-model="form.selectval" placeholder="请输入内容" class="c-my-form-steps">
+              <el-select slot="prepend" v-model="select" placeholder="请选择">
                 <el-option label="餐厅名" value="zhang1" />
                 <el-option label="订单号" value="zhang12" />
                 <el-option label="用户电话" value="zhang13" />
@@ -50,8 +50,8 @@
           <el-form-item>
             <el-button
               type="primary"
-              @click="handleNext"
-              :loading="loadingSteps1">下一步</el-button>
+              :loading="loadingSteps1"
+              @click="handleNext">下一步</el-button>
           </el-form-item>
         </el-form>
         <div v-else-if="curSteps === 1">
@@ -62,7 +62,8 @@
           </el-alert>
           <div class="cc-h-20" />
           <el-form
-            ref="form" :model="form"
+            ref="form"
+            :model="form"
             label-width="120px">
             <el-form-item label="付款账户:">
               <div class="c-text-subheading">
@@ -92,14 +93,14 @@
             :model="form"
             label-width="120px">
             <el-form-item label="支付密码:">
-              <el-input type="password" v-model="form.password" placeholder="请输入收款人姓名" />
+              <el-input v-model="form.password" type="password" placeholder="请输入收款人姓名" />
             </el-form-item>
             <el-form-item>
               <el-button
                 type="primary"
-                @click="onSubmit"
-                :loading="loadingSteps2">提交</el-button>
-              <el-button  @click="onUpper">上一步</el-button>
+                :loading="loadingSteps2"
+                @click="onSubmit">提交</el-button>
+              <el-button @click="onUpper">上一步</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -133,15 +134,13 @@
           <div class="cc-ta--c">
             <el-button
               type="primary"
-              @click="handleToNoe"
-              :loading="loadingSteps3">再转一笔</el-button>
-            <el-button  @click="onUpper">查看账单</el-button>
+              :loading="loadingSteps3"
+              @click="handleToNoe">再转一笔</el-button>
+            <el-button @click="onUpper">查看账单</el-button>
           </div>
         </div>
-       
       </div>
     </el-card>
-
   </div>
 </template>
 
@@ -188,7 +187,7 @@ export default {
       setTimeout(() => {
         this.loadingSteps2 = false
         this.curSteps++
-      }, 800);
+      }, 800)
     },
     onUpper() {
       this.curSteps--
@@ -205,8 +204,7 @@ export default {
       setTimeout(() => {
         this.loadingSteps3 = false
         this.curSteps = 0
-      }, 800);
-      
+      }, 800)
     }
   }
 }

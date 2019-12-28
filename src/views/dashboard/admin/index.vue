@@ -10,18 +10,20 @@
 
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
     <carousel-card/>
-    
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
-    <div class="cc-h-20"></div>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+    <div class="cc-h-20"/>
+
   </div>
 </template>
 

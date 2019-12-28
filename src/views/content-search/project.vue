@@ -8,7 +8,7 @@
   <div class="app-container">
     <el-card class="cc-mar-b-10">
       <div class="cc-pad-30 cc-ta--c">
-        <el-input style="width: 500px;" placeholder="请输入内容" v-model="input2">
+        <el-input v-model="input2" style="width: 500px;" placeholder="请输入内容">
           <!-- <el-button slot="append" type="primary">搜索</el-button> -->
         </el-input>
         <el-button slot="append" type="primary" @click="handleSearch">搜索</el-button>
@@ -23,20 +23,20 @@
               :list="tagList" />
           </div>
         </el-form-item>
-         <el-divider></el-divider>
+        <el-divider/>
         <el-form-item label="作者:">
           <el-select v-model="form.region" multiple placeholder="请选择活动区域">
-            <el-option 
+            <el-option
               v-for="item in selectList"
               :key="item.id"
               :label="item.name"
               :value="item.name">
-                <el-avatar style="vertical-align: middle;" :size="22" :src="item.avatar"></el-avatar>
-                <span>{{ item.name }}</span>
+              <el-avatar style="vertical-align: middle;" :size="22" :src="item.avatar"/>
+              <span>{{ item.name }}</span>
             </el-option>
           </el-select>
         </el-form-item>
-         <el-divider></el-divider>
+         <el-divider />
         <el-form-item label="标签:">
           <div>
             <el-radio-group v-model="form.radio">
@@ -98,7 +98,6 @@
 
 <script>
 import { getCommonPrefile } from '@/api/modules/common'
-import { randomRange } from '@/utils/index'
 export default {
   components: {},
   data() {

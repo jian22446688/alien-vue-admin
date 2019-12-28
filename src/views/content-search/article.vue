@@ -8,9 +8,7 @@
   <div class="app-container">
     <el-card class="cc-mar-b-10">
       <div class="cc-pad-30 cc-ta--c">
-        <el-input style="width: 500px;" placeholder="请输入内容" v-model="input2">
-          <!-- <el-button slot="append" type="primary">搜索</el-button> -->
-        </el-input>
+        <el-input style="width: 500px;" placeholder="请输入内容" v-model="input2"/>
         <el-button slot="append" type="primary" @click="handleSearch">搜索</el-button>
       </div>
     </el-card>

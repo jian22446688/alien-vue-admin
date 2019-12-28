@@ -7,7 +7,7 @@
 <template>
   <div class="app-container">
     <el-card class="cc-mar-b-10">
-      使用图表需要安装: v-charts echarts 
+      使用图表需要安装: v-charts echarts
       <el-link href="https://v-charts.js.org/#/" type="primary">v-charts 文档</el-link>
     </el-card>
     <el-row :gutter="10">
@@ -88,7 +88,7 @@ export default {
       let rows = []
       let columns = ['日期', '访问用户', '下单用户', '下单率']
       for (let i = 0; i < num; i++) {
-        rows.push({ 
+        rows.push({
           '日期': '1/' + (1 + i),
           '访问用户': randomRange(1000, 6000),
           '下单用户': randomRange(1000, 6000),

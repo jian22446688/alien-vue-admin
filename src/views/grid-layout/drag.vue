@@ -32,9 +32,7 @@
             <div class="c-drag-header">
               {{ item.i }}
             </div>
-            <div class="c-drag-content">
-
-            </div>
+            <div class="c-drag-content" />
           </div>
         </grid-item>
       </grid-layout>
