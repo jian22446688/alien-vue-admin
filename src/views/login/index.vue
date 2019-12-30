@@ -1,5 +1,6 @@
 <template>
   <div class="login-container">
+    <div class="c-login__bg"></div>
     <div class="login-body">
       <el-card>
         <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
@@ -215,7 +216,7 @@ $cursor: #fff;
   .login-body {
     max-width: 600px;
     margin: 0 auto;
-
+    background-color: #EFEFE8;
   }
   .el-input {
     display: inline-block;
@@ -252,6 +253,20 @@ $bg:#EFEFE8;
 $dark_gray:#889aa4;
 $light_gray:#eee;
 
+.c-login__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  background-image: url(../../../static/login_bg.jpg)
+}
+
 .login-container {
   min-height: 100%;
   width: 100%;
@@ -265,6 +280,7 @@ $light_gray:#eee;
     padding: 100px 35px;
     margin: 0 auto;
     overflow: hidden;
+    background-color: #fff;
   }
 
   .tips {

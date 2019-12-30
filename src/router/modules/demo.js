@@ -136,6 +136,12 @@ const doms = [
         component: () => import('@/views/form/form-info'),
         name: 'Info',
         meta: { title: '表单详情', icon: 'tab' }
+      },
+      {
+        path: 'create-user',
+        component: () => import('@/views/form/form-create-user'),
+        name: 'CreateUser',
+        meta: { title: '创建表单', icon: 'tab' }
       }
     ]
   },

@@ -107,6 +107,21 @@
         </c-super-table>
       </div>
     </el-card>
+    <el-card class="cc-mar-b-10">
+      <div slot="header">
+        添加列和删除列
+      </div>
+      <div>
+        <div>
+          <el-button type="primary" @click="handleBtnTableAdd">添加</el-button>
+          <el-button type="danger" @click="handleBtnTableDel">删除</el-button>
+        </div>
+        <c-super-table
+          ref="myTable"
+          :table-interface="tableInter"
+          :options="optionData5" />
+      </div>
+    </el-card>
   </div>
 </template>
 
@@ -235,6 +250,23 @@ export default {
         pagination: {
           background: true
         }
+      },
+      optionData5: {
+        tableOption: {
+          height: '300px',
+        },
+        tableHeader: [
+          // { type: 'selection', width: '60' },
+          { type: 'index', label: '序号', width: '80', sortable: true },
+          { label: '日期', prop: 'date', width: '100', sortable: true },
+          { label: '姓名', prop: 'name', width: '130' },
+          { label: '省份', prop: 'province', width: '150' },
+          { label: '市区', prop: 'city', width: '150' },
+          { label: '邮编', prop: 'zip', width: '150' }
+        ],
+        pagination: {
+          background: true
+        }
       }
     }
   },
@@ -301,6 +333,15 @@ export default {
           })
         ]),
       ])
+    },
+
+    handleBtnTableAdd() {
+      this.optionData5.tableHeader.push({ label: '标题', prop: 'title', width: '150' })
+    },
+
+    handleBtnTableDel() {
+      let arrlength = this.optionData5.tableHeader.length
+      this.optionData5.tableHeader.splice(arrlength - 1, 1)
     }
   }
 }
