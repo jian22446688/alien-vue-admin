@@ -97,9 +97,6 @@
               </el-checkbox-group>
             </el-form-item>
           </el-form>
-          <div class="c-line__temp">
-
-          </div>
         </el-col>
         <el-col :span="2">
           <div class="c-line">
@@ -194,7 +191,7 @@ export default {
   mounted() {},
   methods: {
     onSubmit() {
-      console.log('submit!');
+      console.log('submit!')
     }
   }
 }

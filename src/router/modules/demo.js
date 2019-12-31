@@ -142,6 +142,12 @@ const doms = [
         component: () => import('@/views/form/form-create-user'),
         name: 'CreateUser',
         meta: { title: '创建表单', icon: 'tab' }
+      },
+      {
+        path: 'table-search',
+        component: () => import('@/views/form/form-table-search'),
+        name: 'TableSearch',
+        meta: { title: '高级查询', icon: 'tab' }
       }
     ]
   },
@@ -312,6 +318,24 @@ const doms = [
         component: () => import('@/views/result/error'),
         name: 'Error',
         meta: { title: '错误页面', icon: 'tab' }
+      },
+      {
+        path: '403',
+        component: () => import('@/views/result/403'),
+        name: 'Error403',
+        meta: { title: '403页面', icon: 'tab' }
+      },
+      {
+        path: '404',
+        component: () => import('@/views/result/404'),
+        name: 'Error404',
+        meta: { title: '404页面', icon: 'tab' }
+      },
+      {
+        path: '500',
+        component: () => import('@/views/result/500'),
+        name: 'Error500',
+        meta: { title: '500页面', icon: 'tab' }
       }
     ]
   }
