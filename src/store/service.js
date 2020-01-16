@@ -28,7 +28,7 @@ export default {
 
   /**
    * element-ui 图标
-   * @param {Vuex} state 
+   * @param {Vuex} state
    * @param {*} num 数量
    */
   getEleIconList(state, num) {

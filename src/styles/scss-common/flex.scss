@@ -1,0 +1,107 @@
+@import './base/mixins';
+@import './base/var';
+
+$--flex-direction: (
+  'r': row,
+  'rr': row-reverse,
+  'c': column,
+  'cc': column-reverse
+);
+
+$--flex-justify: (
+  'jfs': flex-start,
+  'jfe': flex-end,
+  'jc': center,
+  'jsb': space-between,
+  'jsa': space-around
+);
+
+$--flex-align: (
+  'aifs': flex-start,
+  'aife': flex-end,
+  'aic': center,
+  'aib': baseline,
+  'ais': stretch
+);
+
+$--flex-align-self: (
+  'asfs': flex-start,
+  'asfe': flex-end,
+  'asc': center,
+  'asb': baseline,
+  'ass': stretch
+);
+
+$--flex-align-content: (
+  'acfs': flex-start,
+  'acfe': flex-end,
+  'acc': center,
+  'acsa': space-around,
+  'acsb': space-between,
+  'acs': stretch
+);
+
+@for $i from 1 through $--flex-max-lenght {
+  @include b('flex') {
+    @include modifier-separator('', #{$i}) {
+      flex: $i;
+    }
+  }
+}
+
+@include b('flex') {
+  display: flex;
+}
+
+@each $key,$dir in $--flex-direction {
+  @include b('flex') {
+    @include modifier-separator('', #{$key}) {
+      display: flex;
+      flex-direction: $dir;
+    }
+  }
+}
+
+@each $wrap in (wrap, nowrap) {
+  @include b('flex') {
+    @include modifier-separator('', #{$wrap}) {
+      display: flex;
+      flex-wrap: $wrap;
+    }
+  }
+}
+
+@each $key,$items in $--flex-align-self {
+  @include b('flex') {
+    @include modifier-separator('', #{$key}) {
+      align-self: $items;
+    }
+  }
+}
+
+@each $key,$justify in $--flex-justify {
+  @include b('flex') {
+    @include modifier-separator('', #{$key}) {
+      display: flex;
+      justify-content: $justify;
+    }
+  }
+}
+
+@each $key,$align in $--flex-align {
+  @include b('flex') {
+    @include modifier-separator('', #{$key}) {
+      display: flex;
+      align-items: $align;
+    }
+  }
+}
+
+@each $key,$align in $--flex-align-content {
+  @include b('flex') {
+    @include modifier-separator('', #{$key}) {
+      display: flex;
+      align-content: $align;
+    }
+  }
+}

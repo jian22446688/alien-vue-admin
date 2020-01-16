@@ -183,7 +183,7 @@ const list = [
         meta: { title: 'Clipboard', icon: 'clipboard' }
       }
     ]
-  },
+  }
 ]
 
 export default list

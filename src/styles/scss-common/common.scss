@@ -11,14 +11,33 @@
 }
 
 @include b('t-no-wrap') {
-  @include no-wrap()
+  @include ellipsis()
 }
 
 @include b('t-mr-2') {
-  @include multiEllipsis()
+  @include ellipsis(2)
 }
 
 @include b('t-mr-3') {
-  @include multiEllipsis(3)
+  @include ellipsis(3)
 }
 
+@include b('tri-l') {
+  @include triangle(left, 10px);
+  margin-bottom: 10px;
+}
+
+@include b('tri-r') {
+  @include triangle(right, 10px);
+  margin-bottom: 10px;
+}
+
+@include b('tri-d') {
+  @include triangle(down, 10px);
+  margin-bottom: 10px;
+}
+
+@include b('tri-u') {
+  @include triangle(up, 10px);
+  margin-bottom: 10px;
+}

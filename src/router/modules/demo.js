@@ -40,6 +40,66 @@ const doms = [
     ]
   },
   {
+    path: '/system-message',
+    component: Layout,
+    redirect: '/user',
+    meta: {
+      title: '系统管理',
+      icon: 'dashboard'
+    },
+    children: [
+      {
+        path: 'user-message',
+        component: () => import('@/views/system-message/user-message'),
+        name: 'UserMessage',
+        meta: { title: '用户管理', icon: 'user' }
+      },
+      {
+        path: 'role-message',
+        component: () => import('@/views/system-message/role-message'),
+        name: 'RoleMessage',
+        meta: { title: '角色管理', icon: 'user' }
+      },
+      {
+        path: 'menu-message',
+        component: () => import('@/views/system-message/menu-message'),
+        name: 'MenuMessage',
+        meta: { title: '菜单管理', icon: 'user' }
+      },
+      {
+        path: 'branch-message',
+        component: () => import('@/views/system-message/branch-message'),
+        name: 'BranchMessage',
+        meta: { title: '部门管理', icon: 'user' }
+      },
+      {
+        path: 'position-message',
+        component: () => import('@/views/system-message/position-message'),
+        name: 'PositionMessage',
+        meta: { title: '职位管理', icon: 'user' }
+      },
+      {
+        path: 'dict-message',
+        component: () => import('@/views/system-message/dict-message'),
+        name: 'DictMessage',
+        meta: { title: '字典管理', icon: 'user' }
+      },
+      {
+        path: 'login-log-message',
+        component: () => import('@/views/system-message/login-log-message'),
+        name: 'LoginLogMessage',
+        meta: { title: '登录日志', icon: 'user' }
+      },
+      {
+        path: 'busine-log-message',
+        component: () => import('@/views/system-message/busine-log-message'),
+        name: 'BusineLogMessage',
+        meta: { title: '业务日志', icon: 'user' }
+      }
+
+    ]
+  },
+  {
     path: '/v-charts',
     component: Layout,
     redirect: '/line',

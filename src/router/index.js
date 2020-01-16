@@ -163,7 +163,6 @@ export const asyncRoutes = [
   // tableRouter,
   // ...adminDemo,
 
-
   {
     path: 'alien-path',
     component: Layout,

@@ -588,6 +588,9 @@ export default {
         this.$refs.supertool.hidePopover(this.tbtn)
       }
     }
+  },
+  destroyed() {
+
   }
 }
 

@@ -86,6 +86,9 @@
   @include b('h-min-p#{$num}') {
     min-height: $numpre;
   }
+  @include b('h-line-#{$num}') {
+    min-height: $numpre;
+  }
 }
 @for $i from 1 through $--size-wh-max-lenght {
   $num: $--size-wh-max-lenght_product * $i;
@@ -107,6 +110,9 @@
       min-width: $numpre;
     }
     @include b('h-min-#{$num}') {
+      min-height: $numpre;
+    }
+    @include b('h-line-#{$num}') {
       min-height: $numpre;
     }
   }

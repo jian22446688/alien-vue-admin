@@ -348,8 +348,8 @@ export function removeClass(ele, cls) {
 
 /**
  * 获取随机数
- * @param {number} start 
- * @param {number} end 
+ * @param {number} start
+ * @param {number} end
  */
 export function randomRange(start, end) {
   return Math.floor(Math.random() * (end - start) + start)

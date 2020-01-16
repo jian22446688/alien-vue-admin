@@ -53,6 +53,10 @@ $overflowlist: (v: visible, h: hidden, s: scroll, a: auto);
   border: $--border-base;
 }
 
+@include b('bs-n') {
+  box-shadow: none;
+}
+
 @include b('bc-l') {
   border: $--border-base;
   border-color: $--border-color-lighter;

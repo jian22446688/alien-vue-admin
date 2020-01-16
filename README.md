@@ -14,6 +14,8 @@
 
 [Demo](https://jian22446688.github.io/alien-vue-admin/)
 
+[文档](http://cccary.gitee.io/alien-docs/)
+
 [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 
 ```bash

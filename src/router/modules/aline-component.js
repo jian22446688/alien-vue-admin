@@ -54,7 +54,7 @@ const doms = [
         component: () => import('@/views/aline-commponent/c-super-table/table-children'),
         name: 'TableChildren',
         meta: { title: '表格展开行', icon: 'pic' }
-      },
+      }
       // img-preview
     ]
   }

@@ -12,13 +12,15 @@ import role from './role'
 import article from './article'
 import search from './remote-search'
 import common from './modules/common'
+import userList from './modules/user'
 
 const mocks = [
   ...user,
   ...role,
   ...article,
   ...search,
-  ...common
+  ...common,
+  ...userList
 ]
 
 // for front mock
