@@ -2,7 +2,7 @@
  * @Description: 文件及简介
  * @Author: Cary
  * @Date: 2019-12-12 10:07:18
- * @FilePath: f:\vue-project\alien-vue-admin\src\router\modules\demo.js
+ * @FilePath: \alien-docsf:\vue-project\alien-vue-admin\src\router\modules\demo.js
  */
 
 /* Layout */
@@ -190,6 +190,18 @@ const doms = [
         component: () => import('@/views/form/form-steps'),
         name: 'Steps',
         meta: { title: '步骤表单', icon: 'tab' }
+      },
+      {
+        path: 'quill-editor',
+        component: () => import('@/views/form/form-quill-editor'),
+        name: 'QuillEditor',
+        meta: { title: '可复制网页内容', icon: 'tab' }
+      },
+      {
+        path: 'quill-editor-content',
+        component: () => import('@/views/form/form-quill-editor-conent'),
+        name: 'QuillEditorContent',
+        meta: { title: '富文本编辑器', icon: 'tab' }
       },
       {
         path: 'info',
