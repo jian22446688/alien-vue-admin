@@ -2,7 +2,7 @@
  * @Description: CTagSelect
  * @Author: Cary
  * @Date: 2019-11-30 16:26:27 light plain dark medium / small / mini
- * @FilePath: f:\vue-project\vue-admin-se\src\components\CTagSelect\index.vue
+ * @FilePath: \alien-docsf:\vue-project\vue-admin-se\src\components\CTagSelect\index.vue
  -->
 <template>
   <div>
@@ -38,10 +38,10 @@
         type="text"
         @click="expandedActive = !expandedActive">
         {{ expandedActive ? '展开' : '收起' }}
-        <i :class="{ 'el-icon-arrow-down': expandedActive, 'el-icon-arrow-up': !expandedActive}" />
+        <i :class="{ 'el-icon-arrow-down': expandedActive, 'el-icon-arrow-up': !expandedActive}"/>
       </el-button>
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -70,7 +70,6 @@ export default {
       type: Boolean,
       default: true
     }
-
   },
   data() {
     return {

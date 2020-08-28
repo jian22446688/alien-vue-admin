@@ -108,7 +108,12 @@ export default {
       rightHeight: '0px'
     }
   },
-  computed: {},
+  beforeDestroy() {
+    removeResizeListener(this.$refs['containerBody'], this.containerUpdate)
+    removeResizeListener(this.$refs['bodyel_left'], this.onResizeEl)
+    removeResizeListener(this.$refs['bodyel_right'], this.onResizeEl)
+    removeResizeListener(this.$refs['bodyel'], this.onResizeEl)
+  },
   mounted() {
     this.$nextTick(this.update)
     addResizeListener(this.$refs['containerBody'], throttle(this.update, 300))
@@ -130,20 +135,24 @@ export default {
         _ref['scrollbar_right'] && _ref['scrollbar_right'].update()
       })
     },
+    doBodyUpdate() {
+      setTimeout(() => {
+        this.$nextTick(() => {
+          let width = document.body.scrollWidth
+          document.body.style.width = (width + 1) + 'px'
+          this.$nextTick(() => {
+            document.body.style.width = (width - 1) + 'px'
+          })
+        })
+      }, 1000)
+    },
     onResizeEl() {
       this.$refs['scrollbar'] && this.$nextTick(this.$refs['scrollbar'].update)
       this.$refs['scrollbar_left'] && this.$nextTick(this.$refs['scrollbar_left'].update)
       this.$refs['scrollbar_right'] && this.$nextTick(this.$refs['scrollbar_right'].update)
     }
-  },
-  beforeDestroy() {
-    removeResizeListener(this.$refs['containerBody'], this.containerUpdate)
-    removeResizeListener(this.$refs['bodyel_left'], this.onResizeEl)
-    removeResizeListener(this.$refs['bodyel_right'], this.onResizeEl)
-    removeResizeListener(this.$refs['bodyel'], this.onResizeEl)
   }
 }
-
 </script>
 <style lang='scss' scoped>
 .cc-contriner {
@@ -165,7 +174,7 @@ export default {
     flex-grow: 1;
     height: 100%;
     overflow: auto;
-    overflow-y: hidden; 
+    overflow-y: hidden;
   }
   .cc-container__footer {
     border-top: 1px solid #cfd7e5;
@@ -186,6 +195,8 @@ export default {
     }
     .c-center {
       flex: 1 auto;
+      flex: 1;
+      min-width: 0;
     }
     .c-left {
       border-right: 1px solid #cfd7e5;
@@ -194,6 +205,5 @@ export default {
       border-left: 1px solid #cfd7e5;
     }
   }
-  
 }
 </style>

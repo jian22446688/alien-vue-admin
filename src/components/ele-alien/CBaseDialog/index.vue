@@ -2,7 +2,7 @@
  * @Description: 所有的有内容的弹出框基础组件
  * @Author: Cary
  * @Date: 2019-11-06 14:23:53
- * @FilePath: f:\vue-project\vue-admin-se\src\components\BaseDialog\index.vue
+ * @FilePath: \alien-docsf:\vue-project\vue-admin-se\src\components\CBaseDialog\index.vue
  -->
 <template>
   <el-dialog
@@ -145,6 +145,6 @@ export default {
   }
 }
 .cc-base-dialog__wrap {
-  max-height: 530px
+  max-height: 630px
 }
 </style>

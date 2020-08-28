@@ -10,103 +10,125 @@
     :rules="getRules"
     class="cc-super-form"
     v-bind="getOption">
-    <el-row>
+    <el-row :gutter="10">
       <template v-for="form in getForms">
         <el-col
           v-if="!form.hidden"
-          :key="form.prop"
+          :key="form.fid"
           :span="form.span || 12">
           <el-form-item
-            :label="form.itemLabel"
-            v-bind="form">
-            <template v-if="form.type === 'radio'">
+            v-tips.child="form.tip"
+            v-bind="form"
+            :label="form.itemLabel">
+            <template v-if="form.ctype === 'radio'">
               <el-radio-group
                 v-if="form.list"
                 v-model="getValue[form.prop]"
+                :style="form.cstyle"
                 v-bind="form"
                 @change="handleChange($event, form.callback)">
                 <el-radio
                   v-for="radio in form.list"
                   :key="radio.label"
-                  v-bind="radio">{{ radio.label }}</el-radio>
+                  :style="radio.cstyle"
+                  v-bind="radio">{{ radio.value }}</el-radio>
               </el-radio-group>
             </template>
-            <template v-else-if="form.type === 'radio-button'">
+            <template v-else-if="form.ctype === 'radio-button'">
               <el-radio-group
                 v-if="form.list"
                 v-model="getValue[form.prop]"
                 v-bind="form"
+                :style="form.cstyle"
                 @change="handleChange($event, form.callback)">
                 <el-radio-button
                   v-for="radio in form.list"
                   :key="radio.lable"
-                  v-bind="radio"/>
+                  v-bind="radio"
+                  :style="radio.cstyle"/>
               </el-radio-group>
             </template>
-            <template v-else-if="form.type === 'checkbox'">
+            <template v-else-if="form.ctype === 'checkbox'">
               <el-checkbox-group
                 v-if="form.list"
                 v-model="getValue[form.prop]"
-                v-bind="from"
+                v-bind="form"
+                :style="form.cstyle"
                 @change="handleChange($event, form.callback)">
                 <el-checkbox
                   v-for="checkbox in form.list"
                   :key="checkbox.label"
+                  :style="checkbox.cstyle"
                   v-bind="checkbox">{{ checkbox.text || '' }}</el-checkbox>
               </el-checkbox-group>
               <div v-else style="line-height: 30px;">
                 <el-checkbox
                   v-model="getValue[form.prop]"
-                  v-bind="form">
+                  v-bind="form"
+                  :style="checkbox.cstyle"
+                  checkbox>
                   {{ form.label }}
                 </el-checkbox>
               </div>
             </template>
-            <template v-else-if="form.type === 'checkbox-button'">
+            <template v-else-if="form.ctype === 'checkbox-button'">
               <el-checkbox-group
                 v-if="form.list"
                 v-model="getValue[form.prop]"
                 v-bind="form"
+                :style="form.cstyle"
                 @change="handleChange($event, form.callback)">
                 <el-checkbox-button
                   v-for="checkbox in form.list"
                   :key="checkbox.lable"
+                  :style="checkbox.cstyle || {}"
                   v-bind="checkbox"/>
               </el-checkbox-group>
             </template>
-            <template v-else-if="form.type === 'input'">
+            <template v-else-if="form.ctype === 'input'">
               <el-input
                 v-model="getValue[form.prop]"
-                v-bind="form"/>
+                v-bind="form"
+                :style="form.cstyle"
+                @change="handleChange($event, form.callback)">
+                <span v-if="form.prefix" slot="prefix" class="cc-mar-l-6">{{ form.prefix }}</span>
+                <span v-if="form.suffix" slot="suffix" class="cc-mar-l-6">{{ form.suffix }}</span>
+              </el-input>
             </template>
-            <template v-else-if="form.type === 'input-number'">
+            <template v-else-if="form.ctype === 'input-number'">
               <el-input-number
                 v-model="getValue[form.prop]"
                 v-bind="form"
+                :style="form.cstyle"
                 @change="handleChange($event, form.callback)"/>
             </template>
-            <template v-else-if="form.type === 'select'">
+            <template v-else-if="form.ctype === 'select'">
               <el-select
                 v-model="getValue[form.prop]"
                 v-bind="form"
+                :style="form.cstyle"
                 @change="handleChange($event, form.callback)">
                 <el-option
                   v-for="select in form.list"
                   :key="select.name"
-                  v-bind="form"/>
+                  :label="form.propLabel ? select[form.propLabel] : select.label"
+                  :value="form.propValue ? select[form.propValue] : select.value"
+                  :style="select.cstyle || {}"/>
               </el-select>
             </template>
-            <template v-else-if="form.type === 'cascader'">
+            <template v-else-if="form.ctype === 'cascader'">
               <el-cascader
                 v-model="getValue[form.prop]"
                 v-bind="form"
+                :style="form.cstyle"
                 @change="handleChange($event, form.callback)"/>
             </template>
-            <template v-else-if="form.type === 'cascader-single'">
+            <template v-else-if="form.ctype === 'cascader-single'">
               <el-cascader
                 ref="mySingleCascader"
                 v-model="getValue[form.prop]"
                 v-bind="form"
+                :style="form.cstyle"
                 @change="_handleCascaderChange($event, form.callback)"
                 @expand-change="_handleCascaderExpandChange"
                 @visible-change="_handleCascaderVisibleChange">
@@ -123,34 +145,44 @@
                 </template>
               </el-cascader>
             </template>
-            <template v-else-if="form.type === 'switch'">
+            <template v-else-if="form.ctype === 'switch'">
               <el-switch
                 v-model="getValue[form.prop]"
                 v-bind="form"
+                :style="form.cstyle"
                 @change="handleChange($event, form.callback)"/>
             </template>
-            <template v-else-if="form.type === 'slider'">
+            <template v-else-if="form.ctype === 'slider'">
               <el-slider
                 v-model="getValue[form.prop]"
-                v-bind="form"/>
+                v-bind="form"
+                :style="form.cstyle"/>
             </template>
-            <template v-else-if="form.type === 'timepicker'">
+            <template v-else-if="form.ctype === 'timepicker'">
               <el-time-select
                 v-model="getValue[form.prop]"
                 v-bind="form"
+                :style="form.cstyle"
                 @change="handleChange($event, form.callback)"/>
             </template>
-            <template v-else-if="form.type === 'datepicker'">
+            <template v-else-if="form.ctype === 'datepicker'">
               <el-date-picker
                 v-model="getValue[form.prop]"
                 :type="form.mode || 'date'"
                 v-bind="form"
+                :style="form.cstyle"
                 @change="handleChange($event, form.callback)"/>
             </template>
-            <template v-else-if="form.type === 'slot'">
-              <slot :name="form.slot"/>
+            <template v-else-if="form.ctype === 'empty'">
+              <div v-bind="form" :style="form.cstyle"/>
+            </template>
+            <template v-else>
+              <div>此组件无效</div>
             </template>
           </el-form-item>
+          <template v-if="form.ctype === 'slot'">
+            <slot :name="form.slot"/>
+          </template>
         </el-col>
       </template>
       <el-col v-if="getOption.isShowSubmit" :span="24">
@@ -162,6 +194,7 @@
           <el-button @click="resetForm(getOption.ref)">{{ getOption.resetText || '重置' }}</el-button>
         </el-form-item>
       </el-col>
+      <!-- <slot name="ssss"/> -->
     </el-row>
   </el-form>
 </template>
@@ -185,6 +218,7 @@ export default {
         action: undefined,
         value: {},
         rules: undefined,
+        forms: [],
         ref: 'c_super_form' + this._uid,
         isShowSubmit: true,
         beforeSubmit: undefined,
@@ -201,10 +235,15 @@ export default {
     getOption() {
       return this.option
     },
-
     getForms() {
       if (!this.option.forms) return []
-      return this.option.forms
+      return this.option.forms.map((e, index) => {
+        e.fid = 'sf_' + index + 1
+        if (!e.placecholder && e.itemLabel) {
+          e.placecholder = e.itemLabel + this.filterFormTyep(e.ctype)
+        }
+        return e
+      })
     },
 
     getValue() {
@@ -222,11 +261,37 @@ export default {
 
     setValue(key, val) {
       if (!key) return
+      if (typeof key === 'object') {
+        this.$set(this.option, 'value', key)
+        return
+      }
       this.$set(this.option.value, key, val)
+    },
+
+    setFormList(name, list) {
+      this.setFormEdit(name, 'list', list)
+    },
+
+    setFormEdit(name, key, val) {
+      if (this.option && this.option.forms) {
+        this.option.forms.find(t => {
+          if (t.prop === name) {
+            if (t[key] === undefined) t[key] = null
+            this.$set(t, key, val)
+            return true
+          }
+        })
+      } else {
+        console.error('super query option form. error')
+      }
     },
 
     getValues() {
       return this.getValue
+    },
+
+    getForm() {
+      return this.$refs[this.option.ref]
     },
 
     setSubmitText(text) {
@@ -278,6 +343,15 @@ export default {
 
     resetForm(formName) {
       this.$refs[formName].resetFields()
+    },
+
+    filterFormTyep(type) {
+      let tempTyep = {
+        input: '请输入',
+        select: '请选择',
+        'input-number': '请输入'
+      }
+      return tempTyep[type] || ''
     }
   }
 }
@@ -289,5 +363,4 @@ export default {
     width: 100%;
   }
 }
-
 </style>

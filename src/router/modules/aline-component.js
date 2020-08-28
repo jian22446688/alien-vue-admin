@@ -2,7 +2,7 @@
  * @Description: 文件及简介
  * @Author: Cary
  * @Date: 2019-12-12 10:07:18
- * @FilePath: f:\vue-project\alien-vue-admin\src\router\modules\demo.js
+ * @FilePath: \alien-docsf:\vue-project\alien-vue-admin\src\router\modules\aline-component.js
  */
 
 /* Layout */
@@ -20,6 +20,12 @@ const doms = [
     },
     children: [
       {
+        path: '/common',
+        component: () => import('@/views/aline-commponent/index'),
+        name: 'Common',
+        meta: { title: '常用组件', icon: 'pic' }
+      },
+      {
         path: '/index',
         component: () => import('@/views/aline-commponent/img-preview/index'),
         name: 'ImgPreview',
@@ -36,6 +42,12 @@ const doms = [
         component: () => import('@/views/aline-commponent/c-super-tool'),
         name: 'CSuperTool',
         meta: { title: '工具操作栏', icon: 'pic' }
+      },
+      {
+        path: '/c-super-tool-v2',
+        component: () => import('@/views/aline-commponent/c-super-tool-v2'),
+        name: 'CSuperToolV2',
+        meta: { title: '工具操作栏-v2', icon: 'pic' }
       },
       {
         path: '/table-base',

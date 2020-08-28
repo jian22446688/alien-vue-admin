@@ -45,10 +45,10 @@
           <router-link to="/">
             <el-dropdown-item>仪表面板</el-dropdown-item>
           </router-link>
-          <a target="_blank" href="https://github.com/PanJiaChen/vue-element-admin/">
+          <a target="_blank" href="https://github.com/jian22446688/alien-vue-admin">
             <el-dropdown-item>项目地址</el-dropdown-item>
           </a>
-          <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
+          <a target="_blank" href="http://cccary.gitee.io/alien-docs/">
             <el-dropdown-item>项目文档</el-dropdown-item>
           </a>
           <el-dropdown-item divided>

@@ -26,7 +26,7 @@
               class="c-control-btn cc-margin-l-0"
               @click="handleCheck(scope.$index, scope.row)">
               {{ item.control.check.icon ? '' : item.control.check.text }}
-              <svg-icon v-if="item.control.check.icon" :style="{ fontSize: item.control.check.size }" :icon-class="item.control.check.icon"/>
+              <svg-icon v-if="item.control.check.icon" :icon-class="item.control.check.icon"/>
             </el-button>
             <el-button
               v-if="item.control.edit"
@@ -34,7 +34,7 @@
               class="c-control-btn cc-margin-l-0"
               @click="handleEdit(scope.$index, scope.row)">
               {{ item.control.edit.icon ? '' : item.control.edit.text }}
-              <svg-icon v-if="item.control.edit.icon" :style="{ fontSize: item.control.edit.size }" :icon-class="item.control.edit.icon"/>
+              <svg-icon v-if="item.control.edit.icon" :icon-class="item.control.edit.icon"/>
             </el-button>
             <c-btn-tip
               v-if="item.control.delete"
@@ -44,7 +44,7 @@
               class="c-control-btn"
               @confirm="handleDelete(scope.$index, scope.row)">
               {{ item.control.delete.icon ? '' : item.control.delete.text }}
-              <svg-icon v-if="item.control.delete.icon" :style="{ fontSize: item.control.delete.size }" :icon-class="item.control.delete.icon"/>
+              <svg-icon v-if="item.control.delete.icon" :icon-class="item.control.delete.icon"/>
             </c-btn-tip>
           </template>
         </el-table-column>
@@ -69,7 +69,7 @@
                   :disabled="scope.row['cc_' + btn.disableKey]"
                   @click="handleClick(scope.row, btn.callback)">
                   {{ btn.icon ? '' : btn.text }}
-                  <svg-icon v-if="btn.icon" :style="{ fontSize: btn.size }" :icon-class="btn.icon"/>
+                  <svg-icon v-if="btn.icon" :icon-class="btn.icon"/>
                 </el-button>
               </el-tooltip>
               <template v-else-if="btn.type === 'del'">
@@ -348,6 +348,9 @@ export default {
     getOptionTableHeader() {
       this.option.tableHeader.map((t, i) => {
         if (!t.hid) t.hid = 't_h_' + i
+        if (!t['showOverflowTooltip'] || !t['show-overflow-tooltip']) {
+          t['showOverflowTooltip'] = true
+        }
       })
       return this.option.tableHeader
     },
@@ -477,14 +480,14 @@ export default {
           this.pageTotal = this.result.total
         }
         // 使用了 elementui 中的 el-scrollbar 刷新滚动条
-        // this.$store.commit('SET_APP_SCROLLBAR')
         this.tableLoading = false
         this.$emit('interface', this.result)
         this.$nextTick(() => {
           this.$refs['csuptable'] && this.$refs['csuptable'].doLayout()
         })
+        this.$store.commit('SET_APP_SCROLLBAR')
       }).catch(err => {
-        console.log(err)
+        console.error(err)
         this.tableLoading = false
       })
     },
@@ -496,11 +499,24 @@ export default {
      */
     updateList(obj = 1) {
       this.queryData = {}
-      this.init(obj)
+      if (this.list) {
+        if (Array.isArray(obj)) {
+          this.$nextTick(() => {
+            this.result = obj
+          })
+        }
+      } else {
+        this.init(obj)
+      }
     },
 
     getDataList() {
       return this.result
+    },
+
+    setList(list) {
+      if (!list || !Array.isArray(list)) return
+      this.result = this.preFilterData(list)
     },
 
     getSelectionList() {
@@ -519,8 +535,27 @@ export default {
     addHeader(obj) {
       if (typeof obj !== 'object') throw new Error('super_table add header error')
       let headerArr = this.option['tableHeader']
+      let isHeader = headerArr.find(e => e.prop === obj.prop || e.label === obj.label)
+      if (isHeader) return
       let time = new Date()
       headerArr.splice(headerArr.length - 1, 0, Object.assign(obj, { hid: 't_h_' + time.getTime() }))
+    },
+
+    /**
+     * 删除一列
+     * this.$refs.myTable.delHeader('prop')
+     */
+    delHeader(obj) {
+      if (typeof obj !== 'string') throw new Error('super_table del header error')
+      let headerArr = this.option['tableHeader']
+      if (Array.isArray(headerArr)) {
+        let index = headerArr.findIndex(e => obj === e.name || obj === e.prop || obj === e.label)
+        if (index !== -1) {
+          headerArr.splice(index, 1)
+        }
+      } else {
+        throw new Error('super_table del header error')
+      }
     },
 
     /**
@@ -870,9 +905,9 @@ export default {
       max-height: 100%;
     }
   }
-  .el-link {
-    font-size: 12px;
-  }
+  // .el-link {
+  //   font-size: 12px;
+  // }
   .edit-control {
     display: flex;
     flex-direction: row;

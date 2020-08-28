@@ -2,7 +2,7 @@
  * @Description: 用户管理
  * @Author: Cary
  * @Date: 2020-01-15 09:24:59
- * @FilePath: \excel-to-jsonf:\vue-project\alien-vue-admin\src\views\system-message\user-message.vue
+ * @FilePath: \alien-docsf:\vue-project\alien-vue-admin\src\views\system-message\user-message.vue
  -->
 <template>
   <div class='app-container'>
@@ -71,12 +71,12 @@ export default {
         tableHeader: [
           { type: 'selection', width: '60' },
           { type: 'index', label: '序号', width: '50', sortable: true },
-          { label: '账号', prop: 'account', width: '100' },
-          { label: '名称', prop: 'name', width: '90' },
-          { label: '部门', prop: 'department', width: '90' },
-          { label: '职位', prop: 'position', width: '90' },
-          { label: '电话', prop: 'phone', width: '100' },
-          { label: '创建时间', prop: 'created', width: '100' },
+          { label: '账号', prop: 'account' },
+          { label: '名称', prop: 'name'},
+          { label: '部门', prop: 'department' },
+          { label: '职位', prop: 'position' },
+          { label: '电话', prop: 'phone' },
+          { label: '创建时间', prop: 'created' },
           { type: 'slot', label: '状态', slot: 'temp_stauts', prop: 'stauts', width: '150' },
           { type: 'slot', label: '状态', slot: 'temp_action', prop: 'stauts', width: '150' }
 

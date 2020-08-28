@@ -2,7 +2,7 @@
  * @Description: 文件及简介
  * @Author: Cary
  * @Date: 2019-12-13 09:42:18
- * @FilePath: \alien-docsf:\vue-project\alien-vue-admin\src\views\aline-commponent\c-super-tool.vue
+ * @FilePath: \alien-docsf:\vue-project\alien-vue-admin\src\views\aline-commponent\c-super-tool-v2.vue
  -->
 <template>
   <div class="app-container">
@@ -17,43 +17,47 @@
         </el-link>
       </div>
     </el-card>
-    <el-card class="cc-mar-b-10" header="操作按钮">
-      <c-super-tool ref="supertool" :options="btnOptions">
+    <el-card class="cc-mar-b-10">
+      <el-button type="primary" @click="handleShow">显示</el-button>
+      <el-button type="danger" @click="handleHide">隐藏</el-button>
+    </el-card>
+    <el-card class="cc-mar-b-10" header="可显示隐藏">
+      <c-super-tool-v2 ref="supertool1" :options="btnOptions">
         <div slot="superTest">
           <el-card />
         </div>
-      </c-super-tool>
+      </c-super-tool-v2>
     </el-card>
     <el-card class="cc-mar-b-10" header="是否显示输入框">
       <div class="cc-clearfix">
-        <c-super-tool ref="supertool" class="cc-f--right" :options="btnOptions1">
+        <c-super-tool-v2 ref="supertool" class="cc-f--right" :options="btnOptions1">
           <div slot="superTest">
             <el-card />
           </div>
-        </c-super-tool>
-        <c-super-tool ref="supertool" class="cc-f--left" :options="btnOptions2">
+        </c-super-tool-v2>
+        <c-super-tool-v2 ref="supertool" class="cc-f--left" :options="btnOptions2">
           <div slot="superTest">
             <el-card />
           </div>
-        </c-super-tool>
+        </c-super-tool-v2>
       </div>
     </el-card>
     <el-card class="cc-mar-b-10" header="可控制按钮数量">
       <div class="cc-clearfix">
-        <c-super-tool ref="supertool" class="cc-f--left" :btn-count="6" :options="btnOptions3">
+        <c-super-tool-v2 ref="supertool" class="cc-f--left" :btn-count="6" :options="btnOptions3">
           <div slot="superTest">
             <el-card />
           </div>
-        </c-super-tool>
-        <c-super-tool ref="supertool" class="cc-f--right" :btn-count="6" :options="btnOptions4">
+        </c-super-tool-v2>
+        <c-super-tool-v2 ref="supertool" class="cc-f--right" :btn-count="6" :options="btnOptions4">
           <div slot="superTest">
             <el-card />
           </div>
-        </c-super-tool>
+        </c-super-tool-v2>
       </div>
     </el-card>
     <el-card class="cc-mar-b-10" header="带筛选的">
-      <c-super-tool ref="supertool" :options="btnOptions5">
+      <c-super-tool-v2 ref="supertool" :options="btnOptions5">
         <div slot="superTest">
           <el-form ref="form" :model="form" label-width="80px">
             <el-form-item label="活动名称">
@@ -100,7 +104,7 @@
             </el-form-item>
           </el-form>
         </div>
-      </c-super-tool>
+      </c-super-tool-v2>
     </el-card>
   </div>
 </template>
@@ -577,7 +581,8 @@ export default {
         type: [],
         resource: '',
         desc: ''
-      }
+      },
+      btnHide: true
     }
   },
   computed: {},
@@ -587,6 +592,12 @@ export default {
       if (this.tbtn) {
         this.$refs.supertool.hidePopover(this.tbtn)
       }
+    },
+    handleShow() {
+      this.$refs['supertool1'].setBtnValue('btn_1', 'hidden', false)
+    },
+    handleHide() {
+      this.$refs['supertool1'].setBtnValue('btn_1', 'hidden', true)
     }
   },
   destroyed() {

@@ -1,3 +1,9 @@
+<!--
+ * @Description: 文件及简介
+ * @Author: Cary
+ * @Date: 2019-06-04 13:45:07
+ * @FilePath: \alien-docsf:\vue-project\vue-admin-se\src\components\CCScrollbar\index.vue
+ -->
 <template>
   <el-scrollbar
     ref="scrollbar"
@@ -20,6 +26,10 @@ export default {
     noresize: {
       type: Boolean,
       default: false
+    },
+    height: {
+      type: Number,
+      default: 0
     }
   },
   data() {
@@ -32,14 +42,12 @@ export default {
       'appScroll'
     ]),
     getAppHeight() {
-      return (this.appHeight - 50) + 'px'
+      return (this.appHeight - 50 + this.height) + 'px'
     }
   },
   watch: {
     appScroll(v, ov) {
-      this.$nextTick(() => {
-        this.$refs.scrollbar.update()
-      })
+      this.$nextTick(this.update)
     }
   },
   mounted() {
@@ -50,7 +58,18 @@ export default {
       this.appHeight = document.body.clientHeight
       window.onresize = () => {
         this.appHeight = document.body.clientHeight
+        this.update()
       }
+    },
+
+    getHeight() {
+      return (this.appHeight - 50 + this.height)
+    },
+
+    update() {
+      this.$nextTick(() => {
+        this.$refs && this.$refs.scrollbar && this.$refs.scrollbar.update && this.$refs.scrollbar.update()
+      })
     }
   }
 }

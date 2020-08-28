@@ -325,9 +325,24 @@ export default {
         })
       } else {
         console.error('super query option form. error')
-        return
+        return {}
       }
       return item
+    },
+
+    getValueList() {
+      let list = []
+      if (this.option && this.option.forms) {
+        this.option.forms.forEach(t => {
+          if (t.name !== undefined && t.value !== undefined && t.value !== null) {
+            list.push({ name: t.name, value: t.value, operate: t.operate || 'eq' })
+          }
+        })
+      } else {
+        console.error('super query option form. error')
+        return []
+      }
+      return list
     },
 
     getFormList() {
