@@ -1,3 +1,8 @@
+<!--
+ * @Author: Cary
+ * @Date: 2021-11-16 08:57:08
+ * @FilePath: \alien-docse:\cary\vue-project\alien-vue-admin\src\components\ele-alien\ScrollPane\index.vue
+-->
 <template>
   <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="handleScroll">
     <slot/>
@@ -80,7 +85,7 @@ export default {
   position: relative;
   overflow: hidden;
   width: 100%;
-  /deep/ {
+  ::v-deep {
     .el-scrollbar__bar {
       bottom: 0px;
     }

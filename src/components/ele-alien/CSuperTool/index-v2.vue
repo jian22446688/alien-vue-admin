@@ -291,7 +291,7 @@ export default {
 
 </script>
 <style lang='scss' scoped>
-/deep/ .tool-input {
+::v-deep .tool-input {
   width: 300px;
   display: inline-block;
 }
